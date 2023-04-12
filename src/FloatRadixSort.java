@@ -1,7 +1,6 @@
-import java.io.*;
 import java.util.*;
 
-class DoubleRadixSort {
+class FloatRadixSort {
 
     // A utility function to get maximum value in arr[]
     static float getMax(float arr[], int n)
@@ -42,6 +41,8 @@ class DoubleRadixSort {
         // digit
         for (i = 0; i < n; i++)
             arr[i] = output[i];
+
+        print(arr, n);
     }
 
     // The main function to that sorts arr[] of
@@ -55,7 +56,7 @@ class DoubleRadixSort {
         // Do counting sort for every digit. Note that
         // instead of passing digit number, exp is passed.
         // exp is 10^i where i is current digit number
-        for (double exp = 0.001; m / exp > 0; exp *= 10)
+        for (double exp = 0.1; m / exp > 0; exp *= 10)
             countSort(arr, n, exp);
     }
 
@@ -64,6 +65,7 @@ class DoubleRadixSort {
     {
         for (int i = 0; i < n; i++)
             System.out.print(arr[i] + " ");
+        System.out.println();
     }
 
     // Main driver method

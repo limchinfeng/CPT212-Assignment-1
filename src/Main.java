@@ -42,6 +42,9 @@ class IntRadix {
         // digit
         for (i = 0; i < n; i++)
             arr[i] = output[i];
+
+        print(arr, n);
+
     }
 
     // The main function to that sorts arr[] of
@@ -63,12 +66,13 @@ class IntRadix {
     {
         for (int i = 0; i < n; i++)
             System.out.print(arr[i] + " ");
+        System.out.println();
     }
 
     // Main driver method
     public static void main(String[] args)
     {
-        int arr[] = { 1,3,170, 45, 75, 90, 802, 24, 2, 66 };
+        int arr[] = { 275,87,426, 61, 409, 170, 677, 503};
         int n = arr.length;
 
         // Function Call
