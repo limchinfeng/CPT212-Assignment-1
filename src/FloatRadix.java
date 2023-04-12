@@ -1,16 +1,19 @@
-// Archive (from ChatGPT but can't sort properly
-
 import java.util.*;
 
-class FloatRadixSort {
+class FloatRadix {
 
-    // A utility function to get the fractional part of a float
-    static double getFraction(float num) {
-        return num - Math.floor(num);
+    // A utility function to get maximum value in arr[]
+    static float getMax(float arr[], int n)
+    {
+        float mx = arr[0];
+        for (int i = 1; i < n; i++)
+            if (arr[i] > mx)
+                mx = arr[i];
+        return mx;
     }
 
     // A function to do counting sort of arr[] according to
-    // the fractional part represented by exp.
+    // the digit represented by exp.
     static void countSort(float arr[], int n, double exp)
     {
         float output[] = new float[n]; // output array
@@ -27,36 +30,47 @@ class FloatRadixSort {
         for (i = 1; i < 10; i++)
             count[i] += count[i - 1];
 
-        // Build the output array using a stable sorting algorithm
+        // Build the output array
         for (i = n - 1; i >= 0; i--) {
             output[count[(int)((arr[i] / exp) % 10)] - 1] = arr[i];
             count[(int)((arr[i] / exp) % 10)]--;
         }
+
+        // Copy the output array to arr[], so that arr[] now
+        // contains sorted numbers according to current
+        // digit
         for (i = 0; i < n; i++)
             arr[i] = output[i];
+
+        print(arr, n);
     }
 
     // The main function to that sorts arr[] of
     // size n using Radix Sort
-    static void radixsort(float arr[], int n) {
+    static void radixsort(float arr[], int n)
+    {
+        // Find the maximum number to know number of digits
+        float m = getMax(arr, n);
+//        System.out.println(m);
 
-        // Do counting sort for every fractional part. Note that
-        // instead of passing the digit number, exp is passed.
-        // exp is 10^-i where i is current fractional part number
-        for (double exp = 0.1; exp >= 1.0e-8; exp *= 0.1) {
+        // Do counting sort for every digit. Note that
+        // instead of passing digit number, exp is passed.
+        // exp is 10^i where i is current digit number
+        for (double exp = 0.1; m / exp > 0; exp *= 10)
             countSort(arr, n, exp);
-        }
     }
 
     // A utility function to print an array
-    static void print(float arr[], int n) {
+    static void print(float arr[], int n)
+    {
         for (int i = 0; i < n; i++)
             System.out.print(arr[i] + " ");
         System.out.println();
     }
 
     // Main driver method
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         float arr[] = { 0.897f, 2.565f, 0.656f, 0.123f, 0.665f, 0.343f, 0.001f, 0.002f, 0.655f,0.564f, 0.896f };
         int n = arr.length;
 
