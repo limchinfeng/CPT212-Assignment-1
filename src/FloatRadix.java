@@ -71,7 +71,7 @@ class FloatRadix {
     // Main driver method
     public static void main(String[] args)
     {
-        float arr[] = { 0.897f, 2.565f, 0.656f, 0.123f, 0.665f, 0.343f, 0.001f, 0.002f, 0.655f,0.564f, 0.896f };
+        float arr[] = { 0.00897f, 2.565f, 0.0656f, 0.123f, 0.665f, 0.343f, 0.001f, 0.002f, 0.655f,0.564f, 0.896f };
         int n = arr.length;
 
         // Function Call
