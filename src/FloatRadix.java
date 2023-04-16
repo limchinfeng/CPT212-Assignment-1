@@ -19,7 +19,7 @@ class FloatRadix {
         int count[] = new int[10];
         Arrays.fill(count, 0);
 
-        // Store count of occurrences in count[]
+        // **Store count of occurrences in count[]
         for (i = 0; i < n; i++)
             count[(int) ((arr[i] / exp) % 10)]++;
 
@@ -28,7 +28,7 @@ class FloatRadix {
         for (i = 1; i < 10; i++)
             count[i] += count[i - 1];
 
-        // Build the output array
+        // **Build the output array
         for (i = n - 1; i >= 0; i--) {
             output[count[(int) ((arr[i] / exp) % 10)] - 1] = arr[i];
             count[(int) ((arr[i] / exp) % 10)]--;
@@ -44,7 +44,7 @@ class FloatRadix {
     }
 
     // The main function to that sorts arr[] of
-    // size n using Radix Sort
+    // **size n using Radix Sort
     static void radixsort(float arr[], int n) {
         // Find the maximum number to know number of digits
         float m = getMax(arr, n);
@@ -52,8 +52,8 @@ class FloatRadix {
 
         // Do counting sort for every digit. Note that
         // instead of passing digit number, exp is passed.
-        // exp is 10^i where i is current digit number
-        for (double exp = 0.1; m / exp > 0; exp *= 10)
+        // **exp is 10^i where i is current digit number
+        for (double exp = 0.001; m / exp > 0; exp *= 10)
             countSort(arr, n, exp);
     }
 
@@ -66,7 +66,7 @@ class FloatRadix {
 
     // Main driver method
     public static void main(String[] args) {
-        float arr[] = { 0.01f, 2.57f, 0.23f, 0.12f, 0.66f, 0.34f, 0.06f, 0.87f, 0.77f, 0.56f, 0.89f };
+        float arr[] = { 0.007f, 2.507f, 0.203f, 0.102f, 0.606f, 0.304f, 0.015f, 0.807f, 0.707f, 0.506f, 0.809f };
         int n = arr.length;
 
         // Function Call

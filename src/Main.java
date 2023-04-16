@@ -4,8 +4,7 @@ import java.util.*;
 class IntRadix {
 
     // A utility function to get maximum value in arr[]
-    static int getMax(int arr[], int n)
-    {
+    static int getMax(int arr[], int n) {
         int mx = arr[0];
         for (int i = 1; i < n; i++)
             if (arr[i] > mx)
@@ -15,8 +14,7 @@ class IntRadix {
 
     // A function to do counting sort of arr[] according to
     // the digit represented by exp.
-    static void countSort(int arr[], int n, int exp)
-    {
+    static void countSort(int arr[], int n, int exp) {
         int output[] = new int[n]; // output array
         int i;
         int count[] = new int[10];
@@ -49,8 +47,7 @@ class IntRadix {
 
     // The main function to that sorts arr[] of
     // size n using Radix Sort
-    static void radixsort(int arr[], int n)
-    {
+    static void radixsort(int arr[], int n) {
         // Find the maximum number to know number of digits
         int m = getMax(arr, n);
         System.out.println(m);
@@ -62,17 +59,15 @@ class IntRadix {
     }
 
     // A utility function to print an array
-    static void print(int arr[], int n)
-    {
+    static void print(int arr[], int n) {
         for (int i = 0; i < n; i++)
             System.out.print(arr[i] + " ");
         System.out.println();
     }
 
     // Main driver method
-    public static void main(String[] args)
-    {
-        int arr[] = { 275,87,426, 61, 409, 170, 677, 503};
+    public static void main(String[] args) {
+        int arr[] = { 275, 87, 426, 61, 409, 170, 677, 503 };
         int n = arr.length;
 
         // Function Call
