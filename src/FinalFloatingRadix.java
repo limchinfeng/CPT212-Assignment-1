@@ -7,7 +7,7 @@ public class FinalFloatingRadix {
     public static float[] IntegerRadixsort(float[] arr) {
         int arraySize = arr.length;
         float maxValue = getMaxValue(arr);
-        double exp = 0.00000000000000001;
+        double exp = 0.000000000001;
 
         List<Float>[] array1 = createArrayLists();
         List<Float>[] array2 = createArrayLists();
@@ -77,8 +77,8 @@ public class FinalFloatingRadix {
     }
 
     public static void main(String[] args) {
-        float[] arr = { 0.0000014f, 0.0000013f, 0.00008f, 2.56707f, 0.2403f, 1.102f, 0.606f, 0.000016f, 0.304f,
-                0.000015f, 0.807f,
+        float[] arr = { 0.0014f, 0.0013f, 0.008f, 2.56707f, 0.2403f, 1.102f, 0.606f, 0.016f, 0.304f,
+                0.807f,
                 0.707f, 0.506f, 0.809f, 101.809f, 100.809f };
         System.out.print("Original Array: ");
         print(arr);
