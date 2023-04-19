@@ -82,10 +82,12 @@ public class CounterInteger {
 
     private static List<Integer>[] createArrayLists() {
         List<Integer>[] arrays = new ArrayList[10];
+        counter += 3;
         for (int i = 0; i < 10; i++) {
             arrays[i] = new ArrayList<>();
-            counter++; // increment counter for each new ArrayList created
+            counter += 5; // increment counter for each new ArrayList created
         }
+        counter++; // 1 return operation
         return arrays;
     }
 
@@ -100,13 +102,13 @@ public class CounterInteger {
     // The main method
     public static void main(String[] args) {
         // Create an unsorted array of Integer
-        // int[] arr = { 170, 61, 503, 275, 426, 87, 677, 409 };
-        // int[] arr = { 170, 61, 503, 275, 426, 87, 677};
+        int[] arr = { 170, 61, 503, 275, 426, 87, 677, 409 };
+        // int[] arr = { 170, 61, 503, 275, 426, 87, 677 };
         // int[] arr = { 170, 61, 503, 275, 426, 87};
         // int[] arr = { 170, 61, 503, 275, 426 };
         // int[] arr = { 170, 61, 503, 275 };
-        // int[] arr = { 170, 61, 503};
-        int[] arr = { 170, 61 };
+        // int[] arr = { 170, 61, 503 };
+        // int[] arr = { 170, 61 };
         // int[] arr = { 170 };
         System.out.print("Original Array: ");
         print(arr);
