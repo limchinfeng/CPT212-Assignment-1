@@ -111,7 +111,7 @@ public class FinalFloatingRadix {
                 0.506f, 0.809f, 101.809f, 100.809f };
         System.out.print("Original Array: ");
         print(arr);
-        // Sort the array using Integer Radix Sort algorithm and store the sorted array
+        // Sort the array using Floating Radix Sort algorithm and store the sorted array
         // in sortedArr
         float[] sortedArr = IntegerRadixsort(arr);
         System.out.print("Sorted Array: ");
