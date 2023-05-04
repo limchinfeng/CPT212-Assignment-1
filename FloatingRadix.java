@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class FinalFloatingRadix {
+public class FloatingRadix {
 
     public static float[] IntegerRadixsort(float[] arr) {
         int arrSize = arr.length;
@@ -32,35 +32,31 @@ public class FinalFloatingRadix {
         exponent *= 10;
 
         // Continue the sorting process until all digits have been sorted.
-        while (maxValue / exponent > 0) {
+        for (; maxValue / exponent > 0; exponent *= 10) {
 
-            // For each pass, empty each ArrayList in array1 into the appropriate ArrayList
-            // in array2
+            // For each pass, empty each ArrayList in array1 into the appropriate ArrayList in array2
             // based on the next digit to the left of the decimal point.
             for (int i = 0; i < 10; i++) {
-                while (!Array1[i].isEmpty()) {
-                    float Array1Value = Array1[i].remove(0);
+                for (int j = 0; j < Array1[i].size(); j++) {
+                    float Array1Value = Array1[i].get(j);
                     int index1 = (int) ((Array1Value / exponent) % 10);
                     Array2[index1].add(Array1Value);
                 }
+                Array1[i].clear();
             }
-            // Multiply the radix by 10 to move to the next digit to the left of the decimal
-            // point.
+            // Multiply the radix by 10 to move to the next digit to the left of the decimal point.
             exponent *= 10;
-
-            // For each pass, empty each ArrayList in array2 into the appropriate ArrayList
-            // in array1
+        
+            // For each pass, empty each ArrayList in array2 into the appropriate ArrayList in array1
             // based on the next digit to the left of the decimal point.
             for (int i = 0; i < 10; i++) {
-                while (!Array2[i].isEmpty()) {
-                    float Array2Value = Array2[i].remove(0);
+                for (int j = 0; j < Array2[i].size(); j++) {
+                    float Array2Value = Array2[i].get(j);
                     int index2 = (int) ((Array2Value / exponent) % 10);
                     Array1[index2].add(Array2Value);
                 }
+                Array2[i].clear();
             }
-            // Multiply the radix by 10 to move to the next digit to the left of the decimal
-            // point.
-            exponent *= 10;
         }
 
         // Copy the sorted values from array1 into a new float array and return it.
@@ -76,7 +72,7 @@ public class FinalFloatingRadix {
         return sortedArray;
     }
 
-    // Helper function to find the maximum value in an array of floats.
+    // A method that finds the maximum value in an array of floats
     private static float getMaxValue(float[] arr) {
         float maxValue = arr[0];
         for (int i = 1; i < arr.length; i++) {
@@ -116,5 +112,5 @@ public class FinalFloatingRadix {
         float[] sortedArr = IntegerRadixsort(arr);
         System.out.print("Sorted Array: ");
         print(sortedArr);
-    }
+    }    
 }
