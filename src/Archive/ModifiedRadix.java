@@ -1,20 +1,15 @@
+package Archive;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class JunJieRadix {
+public class ModifiedRadix {
+    private int[] arr;
 
-    public static int getMax(int[] arr) {
-        int max = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] > max) {
-                max = arr[i];
-            }
-        }
-        return max;
+    public ModifiedRadix(int[] arr) {
+        this.arr = arr;
     }
 
-    public static void radixSort(int[] arr) {
-
+    public void sort() {
         int array_size = arr.length;
         int max_value = getMax(arr);
         int exp = 1;
@@ -66,14 +61,32 @@ public class JunJieRadix {
                 arr_count++;
             }
         }
+    }
 
+    private int getMax(int[] arr) {
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+
+    public int[] getArr() {
+        return arr;
+    }
+
+    public void setArr(int[] arr) {
+        this.arr = arr;
     }
 
     public static void main(String[] args) {
-        int[] arr = { 275, 8, 46, 61, 409, 1700, 677, 503 };
+        int[] arr = { 275, 8, 460, 61, 409, 1700, 6770, 503 };
         System.out.println("Original Array: " + Arrays.toString(arr));
-        radixSort(arr);
+        ModifiedRadix sorter = new ModifiedRadix(arr);
+        sorter.sort();
+        arr = sorter.getArr();
         System.out.println("Sorted Array: " + Arrays.toString(arr));
     }
-
 }

@@ -1,6 +1,7 @@
+package Archive;
 import java.util.*;
 
-class testssing {
+class Testing {
 
     // A utility function to get maximum value in arr[]
     static float getMax(float arr[], int n)
@@ -23,17 +24,17 @@ class testssing {
 
         // Store count of occurrences in count[]
         for (i = 0; i < n; i++)
-            count[(int)((arr[i] / exp) % 10) + 10]++;
+            count[(int)((arr[i] / exp) % 10)]++;
 
         // Change count[i] so that count[i] now contains
         // actual position of this digit in output[]
-        for (i = 1; i < 20; i++)
+        for (i = 1; i < 10; i++)
             count[i] += count[i - 1];
 
         // Build the output array
         for (i = n - 1; i >= 0; i--) {
-            output[count[(int)((arr[i] / exp) % 10) + 10] - 1] = arr[i];
-            count[(int)((arr[i] / exp) % 10) + 10]--;
+            output[count[(int)((arr[i] / exp) % 10)] - 1] = arr[i];
+            count[(int)((arr[i] / exp) % 10)]--;
         }
 
         // Copy the output array to arr[], so that arr[] now
@@ -53,7 +54,7 @@ class testssing {
         // Do counting sort for every digit. Note that
         // instead of passing digit number, exp is passed.
         // exp is 10^i where i is current digit number
-        for (double exp = 0.1; m / exp > 0; exp *= 10)
+        for (double exp = 1; m / exp > 0; exp *= 10)
             countSort(arr, n, exp);
     }
 
@@ -68,7 +69,7 @@ class testssing {
     // Main driver method
     public static void main(String[] args)
     {
-        float arr[] = { 0.0897f, 2.565f, 0.00656f, 0.123f, 0.665f, 0.343f, 0.001f, 0.002f, 0.655f,0.564f, 0.896f };
+        float arr[] = { 1.0897f, 2.565f, 0.656f, 0.123f, 0.665f, 0.343f, 0.001f, 0.002f, 0.655f,0.564f, 0.896f };
         int n = arr.length;
 
         // Function Call
