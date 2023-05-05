@@ -5,32 +5,38 @@ import java.util.List;
 public class IntegerRadix {
     
     public static int[] IntegerRadixsort(int[] arr) {
-        // Get the size of the input arra
+        // Get the size of the input array
         int arrSize = arr.length;
+
         // Find the maximum value in the input array
         int maxValue = getMaxValue(arr);
-        // Set the starting value for the exponent
 
+        // Set the starting value for the exponent
         int exponent = 1;
 
-        // Create two arrays of ArrayLists to store the integers
+        // Create two arrays of ArrayLists to hold the values of the input array during
+        // sorting.
+        // Each ArrayList in the arrays will hold the values with a particular radix
+        // during a pass.
         List<Integer>[] Array1 = createArrayLists();
         List<Integer>[] Array2 = createArrayLists();
 
-        // Sort the input array by the least significant digit
+        // First pass: Sort the values of the input array based on their least significant digit
+        // and add them to the corresponding ArrayList in array1.
         for (int i = 0; i < arrSize; i++) {
             int index = (arr[i] / exponent) % 10;
             int value = arr[i];
             Array1[index].add(value);
         }
 
-        // Update the exponent to the next significant digit
+        // Multiply the radix by 10 to move to the the next significant digit
         exponent *= 10;
 
         // Repeat the process until all significant digits have been sorted
         for (; maxValue / exponent > 0; exponent *= 10) {
 
-            // Move the values from array1 to array2, sorted by the next significant digit
+            // For each pass, empty each ArrayList in array1 into the appropriate ArrayList in array2
+            // based on the next significant digit
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < Array1[i].size(); j++) {
                     int Array1Value = Array1[i].get(j);
@@ -40,10 +46,11 @@ public class IntegerRadix {
                 Array1[i].clear();
             }
             
-            // Update the exponent to the next significant digit
+            // Multiply the radix by 10 to move to the next significant digit
             exponent *= 10;
         
-            // Move the values from array2 to array1, sorted by the next significant digit
+            // For each pass, empty each ArrayList in array2 into the appropriate ArrayList in array1
+            // based on the next significant digit
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < Array2[i].size(); j++) {
                     int Array2Value = Array2[i].get(j);
@@ -54,7 +61,7 @@ public class IntegerRadix {
             }
         }
 
-        // Create a sorted array from the values in array1
+        // Copy the sorted values from array1 into a new int array and return it.
         int[] sortedArray = new int[arrSize];
         int arrCount = 0;
         for (int i = 0; i < 10; i++) {
@@ -78,7 +85,7 @@ public class IntegerRadix {
         return maxValue;
     }
 
-    // A method to create a arraylist inside an array
+    // This method creates an array of 10 empty ArrayLists of Int
     private static List<Integer>[] createArrayLists() {
         List<Integer>[] arrays = new ArrayList[10];
         for (int i = 0; i < 10; i++) {
@@ -87,7 +94,7 @@ public class IntegerRadix {
         return arrays;
     }
 
-    // A method that prints an array of integers
+    // This method prints the elements of an array of integer
     static void print(int arr[]) {
         int n = arr.length;
         for (int i = 0; i < n; i++)
@@ -95,7 +102,7 @@ public class IntegerRadix {
         System.out.println();
     }
 
-    // The main method
+    // This is the main method where the program starts executing
     public static void main(String[] args) {
         // Create an unsorted array of Integer
         int[] arr = { 170, 61, 503, 275, 426, 87, 677, 409 };

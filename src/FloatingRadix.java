@@ -5,8 +5,12 @@ import java.util.List;
 public class FloatingRadix {
 
     public static float[] IntegerRadixsort(float[] arr) {
+        // Get the size of the input array
         int arrSize = arr.length;
+
+        // Find the maximum value in the input array
         float maxValue = getMaxValue(arr);
+
         // Initialize the exponent to be a very small value
         double exponent = 0.000000000001;
 
@@ -31,7 +35,7 @@ public class FloatingRadix {
         // point.
         exponent *= 10;
 
-        // Continue the sorting process until all digits have been sorted.
+        // Repeat the process until all significant digits have been sorted
         for (; maxValue / exponent > 0; exponent *= 10) {
 
             // For each pass, empty each ArrayList in array1 into the appropriate ArrayList in array2
