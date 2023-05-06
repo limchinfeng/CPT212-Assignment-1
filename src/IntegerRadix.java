@@ -5,8 +5,6 @@ import java.util.List;
 public class IntegerRadix {
     
     public static int[] IntegerRadixsort(int[] arr) {
-        // Get the size of the input array
-        int arrSize = arr.length;
 
         // Find the maximum value in the input array
         int maxValue = getMaxValue(arr);
@@ -22,8 +20,8 @@ public class IntegerRadix {
         List<Integer>[] Array2 = createArrayLists();
 
         // First pass: Sort the values of the input array based on their least significant digit
-        // and add them to the corresponding ArrayList in array1.
-        for (int i = 0; i < arrSize; i++) {
+        // and add them to the corresponding ArrayList in Array1.
+        for (int i = 0; i < arr.length; i++) {
             int index = (arr[i] / exponent) % 10;
             int value = arr[i];
             Array1[index].add(value);
@@ -62,7 +60,7 @@ public class IntegerRadix {
         }
 
         // Copy the sorted values from Array1 into a new int array and return it.
-        int[] sortedArray = new int[arrSize];
+        int[] sortedArray = new int[arr.length];
         int arrCount = 0;
         for (int i = 0; i < 10; i++) {
             while (!Array1[i].isEmpty()) {
@@ -85,7 +83,7 @@ public class IntegerRadix {
         return maxValue;
     }
 
-    // This method creates an array of 10 empty ArrayLists of Integerradix file
+    // This method creates an array of 10 empty ArrayLists of Integer radix file
     private static List<Integer>[] createArrayLists() {
         List<Integer>[] arrays = new ArrayList[10];
         for (int i = 0; i < 10; i++) {
@@ -110,8 +108,8 @@ public class IntegerRadix {
         print(arr);
         // Sort the array using Integer Radix Sort algorithm and store the sorted array
         // in sortedArr
-        int[] sortedArr = IntegerRadixsort(arr);
+        int[] sortedArray = IntegerRadixsort(arr);
         System.out.print("Sorted Array: ");
-        print(sortedArr);
+        print(sortedArray);
     }
 }

@@ -5,8 +5,6 @@ import java.util.List;
 public class FloatingRadix {
 
     public static float[] FloatRadixsort(float[] arr) {
-        // Get the size of the input array
-        int arrSize = arr.length;
 
         // Find the maximum value in the input array
         float maxValue = getMaxValue(arr);
@@ -24,8 +22,8 @@ public class FloatingRadix {
         // First pass: Sort the values of the input array based on their least
         // significant radix (the digit
         // to the right of the decimal point) and add them to the corresponding
-        // ArrayList in array1.
-        for (int i = 0; i < arrSize; i++) {
+        // ArrayList in Array1.
+        for (int i = 0; i < arr.length; i++) {
             int index = (int) ((arr[i] * exponent) % 10);
             float value = arr[i];
             Array1[index].add(value);
@@ -64,7 +62,7 @@ public class FloatingRadix {
         }
 
         // Copy the sorted values from Array1 into a new float array and return it.
-        float[] sortedArray = new float[arrSize];
+        float[] sortedArray = new float[arr.length];
         int arrCount = 0;
         for (int i = 0; i < 10; i++) {
             while (!Array1[i].isEmpty()) {
@@ -87,7 +85,7 @@ public class FloatingRadix {
         return maxValue;
     }
 
-    // This method creates an array of 10 empty ArrayLists of Floatradix file
+    // This method creates an array of 10 empty ArrayLists of Float radix file
     private static List<Float>[] createArrayLists() {
         List<Float>[] arrays = new ArrayList[10];
         for (int i = 0; i < 10; i++) {
@@ -113,8 +111,8 @@ public class FloatingRadix {
         print(arr);
         // Sort the array using Floating Radix Sort algorithm and store the sorted array
         // in sortedArr
-        float[] sortedArr = FloatRadixsort(arr);
+        float[] sortedArray = FloatRadixsort(arr);
         System.out.print("Sorted Array: ");
-        print(sortedArr);
+        print(sortedArray);
     }    
 }

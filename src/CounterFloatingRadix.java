@@ -6,15 +6,15 @@ public class CounterFloatingRadix {
 
     static int counter=0;
     public static float[] FloatRadixsort(float[] arr) {
-        // Get the size of the input array
-        int arrSize = arr.length;
-        counter+=2;
+        
         // Find the maximum value in the input array
         float maxValue = getMaxValue(arr);
         counter+=2;
+
         // Initialize the exponent to be a very small value
         double exponent = 0.000000000001;
         counter++;
+
         // Create two arrays of ArrayLists to hold the values of the input array during
         // sorting.
         // Each ArrayList in the arrays will hold the values with a particular radix
@@ -23,16 +23,15 @@ public class CounterFloatingRadix {
         counter+=2;
         List<Float>[] Array2 = createArrayLists();
         counter+=2;
-        // First pass: Sort the values of the input array based on their least
-        // significant radix (the digit
-        // to the right of the decimal point) and add them to the corresponding
-        // ArrayList in array1.
+        
+        // First pass: Sort the values of the input array based on their least significant digit
+        // and add them to the corresponding ArrayList in Array1.
         counter++;// 1 value assignment i=0
-        for (int i = 0; i < arrSize; i++) {
+        for (int i = 0; i < arr.length; i++) {
             int index = (int) ((arr[i] * exponent) % 10);
             float value = arr[i];
             Array1[index].add(value);
-            counter+=11;
+            counter+=12;
         }
 
         // Multiply the radix by 10 to move to the next digit to the left of the decimal
@@ -54,7 +53,7 @@ public class CounterFloatingRadix {
                     counter+=13;
                 }
                 Array1[i].clear();
-                counter+=5;
+                counter+=6;
             }
             // Multiply the radix by 10 to move to the next digit to the left of the decimal point.
             exponent *= 10;
@@ -72,14 +71,14 @@ public class CounterFloatingRadix {
                     counter+=13;
                 }
                 Array2[i].clear();
-                counter+=5;
+                counter+=6;
             }
             counter+=4;
         }
 
         // Copy the sorted values from Array1 into a new float array and return it.
-        float[] sortedArray = new float[arrSize];
-        counter+=2;
+        float[] sortedArray = new float[arr.length];
+        counter+=3;
 
         int arrCount = 0;
         counter++;
@@ -93,7 +92,7 @@ public class CounterFloatingRadix {
                 arrCount++;
                 counter+=8;
             }
-            counter+=3;
+            counter+=4;
         }
         counter++;
         return sortedArray;
@@ -141,16 +140,6 @@ public class CounterFloatingRadix {
 
     // This is the main method where the program starts executing
     public static void main(String[] args) {
-        // Create an unsorted array of floats
-//        float[] arr = { 0.0014f, 0.0013f, 0.008f, 2.56707f, 0.2403f, 1.102f, 0.606f, 0.016f, 0.304f, 0.807f, 0.707f,
-//                0.506f, 0.809f, 101.809f, 100.809f };
-//        System.out.print("Original Array: ");
-//        print(arr);
-//        // Sort the array using Floating Radix Sort algorithm and store the sorted array
-//        // in sortedArr
-//        float[] sortedArr = FloatRadixsort(arr);
-//        System.out.print("Sorted Array: ");
-//        print(sortedArr);
 
         int [] n = {1,10,100,1000,10000,100000};
 
