@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class FloatingRadix {
 
@@ -114,5 +115,36 @@ public class FloatingRadix {
         float[] sortedArray = FloatRadixsort(arr);
         System.out.print("Sorted Array: ");
         print(sortedArray);
+        System.out.print("\n");
+
+        // create 2 arrays which have random positive integer number inside the array
+        float[] arr2 = new float[10];
+        float[] arr3 = new float[10];
+        Random rand = new Random();
+        
+        // assign a random created float number to the array
+        for (int i = 0; i < arr2.length; i++) {
+           arr2[i] = rand.nextFloat(10000);
+           arr3[i] = rand.nextFloat(1000);
+        }
+
+        // Sort the array using Float Radix Sort algorithm and store the sorted array
+        // in sortedArr2 and sortedArr3
+        float[] sortedArray2 = FloatRadixsort(arr2);
+        float[] sortedArray3 = FloatRadixsort(arr3);
+
+        //print the results
+        System.out.print("Original Random Array 1: ");
+        print(arr2);
+        System.out.print("Sorted Random Array 1: ");
+        print(sortedArray2);
+
+        System.out.print("\n");
+
+        System.out.print("Original Random Array 1: ");
+        print(arr3);
+        System.out.print("Sorted Random Array 2: ");
+        print(sortedArray3);
+
     }    
 }

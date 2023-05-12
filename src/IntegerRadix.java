@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class IntegerRadix {
     
@@ -111,5 +112,36 @@ public class IntegerRadix {
         int[] sortedArray = IntegerRadixsort(arr);
         System.out.print("Sorted Array: ");
         print(sortedArray);
+        System.out.print("\n");
+
+        // create 2 arrays which have random positive integer number inside the array
+        int[] arr2 = new int[10];
+        int[] arr3 = new int[10];
+        Random rand = new Random();
+        
+        // assign a random created integer number to the array
+        for (int i = 0; i < arr2.length; i++) {
+           arr2[i] = rand.nextInt(10000);
+           arr3[i] = rand.nextInt(1000);
+        }
+
+        // Sort the array using Integer Radix Sort algorithm and store the sorted array
+        // in sortedArr2 and sortedArr3
+        int[] sortedArray2 = IntegerRadixsort(arr2);
+        int[] sortedArray3 = IntegerRadixsort(arr3);
+
+        //print the results
+        System.out.print("Original Random Array 1: ");
+        print(arr2);
+        System.out.print("Sorted Random Array 1: ");
+        print(sortedArray2);
+
+        System.out.print("\n");
+
+        System.out.print("Original Random Array 1: ");
+        print(arr3);
+        System.out.print("Sorted Random Array 2: ");
+        print(sortedArray3);
+
     }
 }
