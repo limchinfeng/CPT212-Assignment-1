@@ -150,19 +150,24 @@ public class CounterFloatingRadix {
             
             float ar[]=new float[number];
 
-            for(int j=1; j<=n[i] ;j++){
-                ar[j-1]=j+0.1f;
-//                System.out.print(ar[j-1]+" , ");
+            Random rand = new Random();
+            for(int j=0; j<n[i] ;j++){
+                ar[j] = rand.nextFloat(n[i]);
             }
 
-            // Randomize the number in the array to have a more accurate results
-            Random rand = new Random();
-            for (int k = ar.length - 1; k > 0; k--) {
-                int j = rand.nextInt(k + 1);
-                float temp = ar[k];
-                ar[k] = ar[j];
-                ar[j] = temp;
-            }
+//             for(int j=1; j<=n[i] ;j++){
+//                 ar[j-1]=j+0.1f;
+// //                System.out.print(ar[j-1]+" , ");
+//             }
+
+//             //Randomize the number in the array to have a more accurate results
+//             Random rand = new Random();
+//             for (int k = ar.length - 1; k > 0; k--) {
+//                 int j = rand.nextInt(k + 1);
+//                 float temp = ar[k];
+//                 ar[k] = ar[j];
+//                 ar[j] = temp;
+//             }
             
             float[] sortedArrCounter= FloatRadixsort(ar);
             System.out.println("n = "+n[i] +" , counter = "+counter);

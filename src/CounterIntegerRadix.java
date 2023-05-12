@@ -151,25 +151,29 @@ public class CounterIntegerRadix{
             int number = n[i];
             int ar[]=new int[number];
 
-            for(int j=1; j<=n[i] ;j++){
-                ar[j-1]=j;
-//                System.out.print(ar[j-1]+" , ");
+
+            Random rand = new Random();
+            for(int j=0; j<n[i] ;j++) {
+                ar[j] = rand.nextInt(n[i]);
             }
 
-            // Randomize the number in the array to have a more accurate results
-            Random rand = new Random();
-            for (int k = ar.length - 1; k > 0; k--) {
-                int j = rand.nextInt(k + 1);
-                int temp = ar[k];
-                ar[k] = ar[j];
-                ar[j] = temp;
-            }
+//             for(int j=1; j<=n[i] ;j++){
+//                 ar[j-1]=j;
+// //                System.out.print(ar[j-1]+" , ");
+//             }
+
+//             // Randomize the number in the array to have a more accurate results
+//             Random rand = new Random();
+//             for (int k = ar.length - 1; k > 0; k--) {
+//                 int j = rand.nextInt(k + 1);
+//                 int temp = ar[k];
+//                 ar[k] = ar[j];
+//                 ar[j] = temp;
+//             }
     
             IntegerRadixsort(ar);
             System.out.println("n = "+n[i] +" , counter = "+counter);
             counter=0;
-
-
 
 
         }
