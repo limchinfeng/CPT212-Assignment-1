@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class CounterFloatingRadix {
 
@@ -146,13 +147,23 @@ public class CounterFloatingRadix {
         for(int i=0; i<n.length; i++){
 
             int number = n[i];
-            ;
+            
             float ar[]=new float[number];
 
             for(int j=1; j<=n[i] ;j++){
                 ar[j-1]=j+0.1f;
 //                System.out.print(ar[j-1]+" , ");
             }
+
+            // Randomize the number in the array to have a more accurate results
+            Random rand = new Random();
+            for (int k = ar.length - 1; k > 0; k--) {
+                int j = rand.nextInt(k + 1);
+                float temp = ar[k];
+                ar[k] = ar[j];
+                ar[j] = temp;
+            }
+            
             float[] sortedArrCounter= FloatRadixsort(ar);
             System.out.println("n = "+n[i] +" , counter = "+counter);
             counter=0;

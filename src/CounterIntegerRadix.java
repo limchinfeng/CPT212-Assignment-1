@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class CounterIntegerRadix{
 
@@ -154,9 +155,23 @@ public class CounterIntegerRadix{
                 ar[j-1]=j;
 //                System.out.print(ar[j-1]+" , ");
             }
+
+            // Randomize the number in the array to have a more accurate results
+            Random rand = new Random();
+            for (int k = ar.length - 1; k > 0; k--) {
+                int j = rand.nextInt(k + 1);
+                int temp = ar[k];
+                ar[k] = ar[j];
+                ar[j] = temp;
+            }
+    
             IntegerRadixsort(ar);
             System.out.println("n = "+n[i] +" , counter = "+counter);
             counter=0;
+
+
+
+
         }
     }
 }
