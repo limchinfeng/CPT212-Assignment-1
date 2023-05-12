@@ -7,6 +7,12 @@ public class CounterFloatingRadix {
 
     static int counter=0;
     public static float[] FloatRadixsort(float[] arr) {
+
+        counter++;
+        if(arr.length == 1){
+            counter++;
+            return arr;
+        }
         
         // Find the maximum value in the input array
         float maxValue = getMaxValue(arr);

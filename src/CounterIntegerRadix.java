@@ -8,6 +8,12 @@ public class CounterIntegerRadix{
     static int counter=0;
     public static int[] IntegerRadixsort(int[] arr) {
 
+        counter++;
+        if(arr.length == 1){
+            counter++;
+            return arr;
+        }
+
         // Find the maximum value in the input array
         int maxValue = getMaxValue(arr);
         counter+=2;
