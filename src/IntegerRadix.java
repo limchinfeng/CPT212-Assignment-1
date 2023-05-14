@@ -7,6 +7,10 @@ public class IntegerRadix {
     
     public static int[] IntegerRadixsort(int[] arr) {
 
+        // return if number is 1
+        if(arr.length == 1)
+            return arr;
+
         // Find the maximum value in the input array
         int maxValue = getMaxValue(arr);
 

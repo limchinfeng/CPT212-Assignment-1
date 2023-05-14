@@ -8,6 +8,7 @@ public class CounterFloatingRadix {
     static int counter=0;
     public static float[] FloatRadixsort(float[] arr) {
 
+        // return if number is 1
         counter++;
         if(arr.length == 1){
             counter++;

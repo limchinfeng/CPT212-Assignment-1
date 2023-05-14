@@ -8,6 +8,7 @@ public class CounterIntegerRadix{
     static int counter=0;
     public static int[] IntegerRadixsort(int[] arr) {
 
+        // return if number is 1
         counter++;
         if(arr.length == 1){
             counter++;

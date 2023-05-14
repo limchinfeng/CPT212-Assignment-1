@@ -7,6 +7,10 @@ public class FloatingRadix {
 
     public static float[] FloatRadixsort(float[] arr) {
 
+        // return if number is 1
+        if(arr.length == 1)
+            return arr;
+
         // Find the maximum value in the input array
         float maxValue = getMaxValue(arr);
 
@@ -134,7 +138,7 @@ public class FloatingRadix {
         float[] sortedArray3 = FloatRadixsort(arr3);
 
         //print the results
-        System.out.print("Original Random Array 1: ");
+        System.out.print("\nOriginal Random Array 1: ");
         print(arr2);
         System.out.print("Sorted Random Array 1: ");
         print(sortedArray2);
